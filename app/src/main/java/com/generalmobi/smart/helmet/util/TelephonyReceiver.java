@@ -82,12 +82,12 @@ public class TelephonyReceiver extends BroadcastReceiver {
                             new String[]{id}, null);
                     while (pCur.moveToNext()) {
                         String phoneNo = pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-
+                        phoneNo=phoneNo.replaceAll(" ","");
                         if (phoneNo.contains(search)) {
                             result=name;
+                            Log.i("Phone-Found", "Name: " + name + ", Phone No: " + phoneNo);
+
                         }
-                        Log.i("My-Name", "Name: " + name + ", Phone No: " + phoneNo);
-                        Toast.makeText(context, "Name: " + name + ", Phone No: " + phoneNo, Toast.LENGTH_LONG).show();
 
 
                     }
