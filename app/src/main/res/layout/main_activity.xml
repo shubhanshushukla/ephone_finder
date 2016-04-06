@@ -6,6 +6,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="hello"
+        />
+    <TextView
+        android:id="@+id/bluetoothstate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        />
+    <Button
+        android:id="@+id/listpaireddevices"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="List Paired Devices"
+        android:enabled="false"
+        />
+
+
     <!-- The main content view -->
     <FrameLayout
             android:id="@+id/container"

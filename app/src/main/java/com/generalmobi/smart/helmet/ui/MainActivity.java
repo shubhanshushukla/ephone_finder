@@ -1,87 +1,96 @@
 package com.generalmobi.smart.helmet.ui;
 
-import android.accounts.OperationCanceledException;
-import android.app.ProgressDialog;
-import android.content.Context;
+
+import android.app.Activity;
+import android.app.ListActivity;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothClass;
+import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.LinearLayout;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.generalmobi.smart.helmet.BootstrapApplication;
-import com.generalmobi.smart.helmet.BootstrapServiceProvider;
-import com.squareup.otto.Subscribe;
 
-import javax.inject.Inject;
-
-import butterknife.ButterKnife;
-import timber.log.Timber;
+import java.util.Set;
 
 
 /**
 
  */
-public class MainActivity extends BootstrapActivity {
-
-    @Inject
-    BootstrapServiceProvider serviceProvider;
-
-    private boolean userHasAuthenticated = false;
-    private static final String FORCE_REFRESH = "forceRefresh";
-
-    private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle drawerToggle;
-    private CharSequence drawerTitle;
-    private CharSequence title;
-     final Context ctx = this;
-
-
-
+public class MainActivity extends ListActivity {
 
     @Override
-    protected void onCreate(final Bundle savedInstanceState) {
-
-        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-        supportRequestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
-
+    protected void onCreate(Bundle savedInstanceState) {
+        // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-        BootstrapApplication.component().inject(this);
 
+        ArrayAdapter<String> btArrayAdapter
+                = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1);
 
+        BluetoothAdapter bluetoothAdapter
+                = BluetoothAdapter.getDefaultAdapter();
+        Set<BluetoothDevice> pairedDevices
+                = bluetoothAdapter.getBondedDevices();
 
-        // View injection with Butterknife
-        ButterKnife.bind(this);
-
-
-
-
-
+        if (pairedDevices.size() > 0) {
+            for (BluetoothDevice device : pairedDevices) {
+                String deviceBTName = device.getName();
+                String deviceBTMajorClass
+                        = getBTMajorDeviceClass(device
+                        .getBluetoothClass()
+                        .getMajorDeviceClass());
+                btArrayAdapter.add(deviceBTName + "\n"
+                        + deviceBTMajorClass);
+            }
+        }
+        setListAdapter(btArrayAdapter);
 
     }
 
+
+    private String getBTMajorDeviceClass(int major){
+        switch(major){
+            case BluetoothClass.Device.Major.AUDIO_VIDEO:
+                return "AUDIO_VIDEO";
+            case BluetoothClass.Device.Major.COMPUTER:
+                return "COMPUTER";
+            case BluetoothClass.Device.Major.HEALTH:
+                return "HEALTH";
+            case BluetoothClass.Device.Major.IMAGING:
+                return "IMAGING";
+            case BluetoothClass.Device.Major.MISC:
+                return "MISC";
+            case BluetoothClass.Device.Major.NETWORKING:
+                return "NETWORKING";
+            case BluetoothClass.Device.Major.PERIPHERAL:
+                return "PERIPHERAL";
+            case BluetoothClass.Device.Major.PHONE:
+                return "PHONE";
+            case BluetoothClass.Device.Major.TOY:
+                return "TOY";
+            case BluetoothClass.Device.Major.UNCATEGORIZED:
+                return "UNCATEGORIZED";
+            case BluetoothClass.Device.Major.WEARABLE:
+                return "AUDIO_VIDEO";
+            default: return "unknown!";
+        }
+    }
 
     @Override
-    public void onConfigurationChanged(final Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        // TODO Auto-generated method stub
+        super.onListItemClick(l, v, position, id);
 
+        Intent intent = new Intent();
+        setResult(RESULT_OK, intent);
+        finish();
     }
-
-
-    private void initScreen() {
-
-
-    }
-
-
-
 
 
 }

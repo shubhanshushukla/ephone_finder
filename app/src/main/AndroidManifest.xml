@@ -11,6 +11,12 @@
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+
 
     <application
         android:name=".BootstrapApplicationImpl"
@@ -27,16 +33,14 @@
                  <category android:name="android.intent.category.LAUNCHER" />
                  <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+
         </activity>
-
-
-
-
-
-
-
-
-
+        <receiver android:name=".util.TelephonyReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE" />
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL"/>
+            </intent-filter>
+        </receiver>
         <!-- Replace with your Fabric Crashlytics key from Fabric.io -->
         <meta-data
             android:name="io.fabric.ApiKey"
