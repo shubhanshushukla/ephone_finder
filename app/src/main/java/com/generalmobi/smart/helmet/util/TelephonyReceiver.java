@@ -7,44 +7,43 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.speech.tts.TextToSpeech;
 import android.telephony.TelephonyManager;
 import android.util.Log;
-import android.widget.Toast;
+
+import com.generalmobi.smart.helmet.ui.MainActivity;
+
+import timber.log.Timber;
 
 public class TelephonyReceiver extends BroadcastReceiver {
 
 
-
-
     @Override
-    public void onReceive(Context arg0, Intent intent) {
+    public void onReceive(Context context, Intent intent) {
+
 
         try {
             if (intent != null && intent.getAction().equals("android.intent.action.NEW_OUTGOING_CALL")) {
-//Toast.makeText(context, "Outgoign call", 1000).show();
-                String number = intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER);
+                 String number = intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER);
             } else {
-//get the phone state
+                //get the phone state
                 String newPhoneState = intent.hasExtra(TelephonyManager.EXTRA_STATE) ? intent.getStringExtra(TelephonyManager.EXTRA_STATE) : null;
                 Bundle bundle = intent.getExtras();
 
                 if (newPhoneState != null && newPhoneState.equals(TelephonyManager.EXTRA_STATE_RINGING)) {
-//read the incoming call number
+                    //read the incoming call number
                     String phoneNumber = bundle.getString(TelephonyManager.EXTRA_INCOMING_NUMBER);
-                    String name=displayContacts(phoneNumber, arg0);
-
-                    Toast.makeText(arg0, "Name: " + name + ", Phone No: " + phoneNumber, Toast.LENGTH_LONG).show();
-                    Log.i("My-Name", "Name: " + name + ", Phone No: " + phoneNumber);
-
-
-                } else if (newPhoneState != null && newPhoneState.equals(TelephonyManager.EXTRA_STATE_IDLE)) {
-
-                    Log.i("PHONE RECEIVER", "Telephone is now idle");
-                } else if (newPhoneState != null && newPhoneState.equals(TelephonyManager.EXTRA_STATE_OFFHOOK)) {
-
-                    Log.i("PHONE RECEIVER", "Telephone is now busy");
+                    String name=displayContacts(phoneNumber, context);
+                    Timber.i("Current state is : "+MainActivity.helmetState);
+                    if (MainActivity.helmetState==MainActivity.CONNECTED)
+                    {
+                        //Do speech to text
+                        if (MainActivity.textToSpeech!=null)
+                        {
+                            MainActivity.textToSpeech.speak(name, TextToSpeech.QUEUE_FLUSH, null);
+                        }
+                    }
                 }
-
             }
 
         } catch (Exception ee) {
@@ -94,6 +93,14 @@ public class TelephonyReceiver extends BroadcastReceiver {
                     pCur.close();
                 }
             }
+        }
+
+        try {
+            cur.close();;
+        }
+        catch (Exception ex)
+        {
+
         }
 
         if (result==null)

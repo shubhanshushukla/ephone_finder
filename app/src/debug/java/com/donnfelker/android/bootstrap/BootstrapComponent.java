@@ -2,6 +2,7 @@ package com.generalmobi.smart.helmet;
 
 import com.generalmobi.smart.helmet.ui.BootstrapActivity;
  import com.generalmobi.smart.helmet.ui.MainActivity;
+import com.generalmobi.smart.helmet.util.TelephonyReceiver;
 
 import javax.inject.Singleton;
 
