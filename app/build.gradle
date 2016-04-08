@@ -24,17 +24,13 @@ repositories {
 
 def computeVersionCode() {
 
-    if (System.env.BUILD_NUMBER) {              // Check if there is a system build number.
-        return "$System.env.BUILD_NUMBER".toInteger()
-    } else if (System.env.CIRCLE_BUILD_NUM) {   // Check to see if this is built on circle CI
-        return "$System.env.CIRCLE_BUILD_NUM".toInteger()
-    } else {
+
         return 1                // if none is found, default to 1.
-    }
+
 }
 
 def computeVersionName() {
-    return "1." + computeVersionCode()
+    return version;
 }
 
 //noinspection GroovyUnusedAssignment
@@ -73,11 +69,11 @@ android {
 //             keyAlias System.getenv('ANDROID_KEY_ALIAS')
 //             keyPassword System.getenv('ANDROID_KEY_PASS')
 //         }
-        config {
-            keyAlias 'VTS'
-            keyPassword 'changeit'
-            storeFile file('/home/shubhanshu/AndroidKeystore/vts.jks')
-            storePassword 'changeit'
+        release {
+            storeFile file(System.getenv('ANDROID_KEYSTORE_PATH'))
+            storePassword "changeit"
+            keyAlias "Generalmobi"
+            keyPassword "changeit"
         }
     }
 
@@ -91,6 +87,14 @@ android {
             // zipAlign false // this is default for debug
         }
         release {
+
+            signingConfig signingConfigs.release
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def file = output.outputFile
+                    output.outputFile = new File(file.parent, file.name.replace(".apk", "-" + defaultConfig.versionName + ".apk"))
+                }
+            }
             // minifyEnabled true
             // proguardFile '..\proguard.cfg'
             // signingConfig signingConfigs.release
