@@ -30,7 +30,7 @@ public class TelephonyReceiver extends BroadcastReceiver {
                 String newPhoneState = intent.hasExtra(TelephonyManager.EXTRA_STATE) ? intent.getStringExtra(TelephonyManager.EXTRA_STATE) : null;
                 Bundle bundle = intent.getExtras();
 
-                if (newPhoneState != null && newPhoneState.equals(TelephonyManager.EXTRA_STATE_RINGING)) {
+                 if (newPhoneState != null && newPhoneState.equals(TelephonyManager.EXTRA_STATE_RINGING)) {
                     //read the incoming call number
                     String phoneNumber = bundle.getString(TelephonyManager.EXTRA_INCOMING_NUMBER);
                     String name=displayContacts(phoneNumber, context);

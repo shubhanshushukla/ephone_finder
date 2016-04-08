@@ -2,11 +2,14 @@ package com.generalmobi.smart.helmet.ui;
 
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothClass;
 import android.bluetooth.BluetoothDevice;
+import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
@@ -67,21 +70,48 @@ public class MainActivity extends BootstrapActivity {
         });
         am= (AudioManager) getBaseContext().getSystemService(Context.AUDIO_SERVICE);
 
-        Timber.i("Sdk version : " + Build.VERSION.SDK_INT);
 
-        /*Intent startMain = new Intent(Intent.ACTION_MAIN);
-        startMain.addCategory(Intent.CATEGORY_HOME);
-        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(startMain);
-*/
-        moveTaskToBack (true);
-        if (Build.VERSION.SDK_INT > 22)
+        if (textToSpeech.isLanguageAvailable(Locale.UK)!=TextToSpeech.LANG_AVAILABLE)
         {
-            getPermission();
+
+            new AlertDialog.Builder(this)
+                    .setTitle("Install language")
+                    .setMessage("Please install 'English (United Kingdom)' language to activate smart helmet, then restart Smart Helmet (App) once language get completely downloaded")
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            MainActivity.this.installVoiceData();;
+                            Toaster.showLong(MainActivity.this,"Smart helmet exiting...");
+                            System.exit(0);
+                        }
+                    })
+
+                    .setIcon(android.R.drawable.ic_dialog_info)
+                    .show();
         }
+        else
+        {
+            moveTaskToBack (true);
+
+        }
+        Timber.i("Sdk version : " + Build.VERSION.RELEASE);
+
+
+
     }
 
 
+    private void installVoiceData() {
+        Intent intent = new Intent(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setPackage(textToSpeech.getDefaultEngine());
+        try {
+            Timber.i("Installing voice data: " + intent.toUri(0));
+            startActivity(intent);
+
+        } catch (ActivityNotFoundException ex) {
+            Timber.i("Failed to install TTS data, no acitivty found for " + intent + ")");
+        }
+    }
     private void getPermission()
     {
 
@@ -103,7 +133,7 @@ public class MainActivity extends BootstrapActivity {
                 // No explanation needed, we can request the permission.
 
                 ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.READ_PHONE_STATE,Manifest.permission.READ_CONTACTS,Manifest.permission.MODIFY_AUDIO_SETTINGS},
+                        new String[]{Manifest.permission.READ_PHONE_STATE,Manifest.permission.READ_CONTACTS,Manifest.permission.MODIFY_AUDIO_SETTINGS,Manifest.permission.BLUETOOTH},
                         1);
 
                 // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
