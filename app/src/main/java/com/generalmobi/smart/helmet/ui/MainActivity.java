@@ -1,6 +1,7 @@
 package com.generalmobi.smart.helmet.ui;
 
 
+import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothClass;
 import android.bluetooth.BluetoothDevice;
@@ -8,12 +9,17 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.media.AudioManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 
 import com.generalmobi.smart.helmet.BootstrapApplication;
 import com.generalmobi.smart.helmet.BootstrapServiceProvider;
+import com.generalmobi.smart.helmet.util.Toaster;
 
 import java.util.Locale;
 
@@ -61,6 +67,7 @@ public class MainActivity extends BootstrapActivity {
         });
         am= (AudioManager) getBaseContext().getSystemService(Context.AUDIO_SERVICE);
 
+        Timber.i("Sdk version : " + Build.VERSION.SDK_INT);
 
         /*Intent startMain = new Intent(Intent.ACTION_MAIN);
         startMain.addCategory(Intent.CATEGORY_HOME);
@@ -68,10 +75,69 @@ public class MainActivity extends BootstrapActivity {
         startActivity(startMain);
 */
         moveTaskToBack (true);
-
+        if (Build.VERSION.SDK_INT > 22)
+        {
+            getPermission();
+        }
     }
 
 
+    private void getPermission()
+    {
+
+        Toaster.showLong(this,"Checking permission");
+
+        // Here, thisActivity is the current activity
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.READ_PHONE_STATE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.READ_PHONE_STATE)) {
+
+                Toaster.showLong(this,"Smart Helmet need to access your phone state to work better");
+
+            } else {
+
+                // No explanation needed, we can request the permission.
+
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.READ_PHONE_STATE,Manifest.permission.READ_CONTACTS,Manifest.permission.MODIFY_AUDIO_SETTINGS},
+                        1);
+
+                // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+                // app-defined int constant. The callback method gets the
+                // result of the request.
+            }
+        }
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case 1: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+
+                } else {
+
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                }
+                return;
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request
+        }
+    }
 
 
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
