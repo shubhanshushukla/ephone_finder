@@ -9,10 +9,7 @@ import com.generalmobi.smart.finder.core.BootstrapService;
  
 
 import java.util.List;
-
-import org.junit.Ignore;
-import org.junit.Test;
-
+ 
 /**
  * Unit tests of client API
  */
