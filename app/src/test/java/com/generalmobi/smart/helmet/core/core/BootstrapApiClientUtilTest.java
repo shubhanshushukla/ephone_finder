@@ -1,12 +1,12 @@
 
 
-package com.generalmobi.smart.helmet.core.core;
+package com.generalmobi.smart.finder.core.core;
 
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
-import com.generalmobi.smart.helmet.core.BootstrapService;
-import com.generalmobi.smart.helmet.core.User;
+import com.generalmobi.smart.finder.core.BootstrapService;
+import com.generalmobi.smart.finder.core.User;
 
 import java.util.List;
 

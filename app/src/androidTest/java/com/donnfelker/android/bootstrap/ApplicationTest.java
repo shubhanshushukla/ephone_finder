@@ -1,4 +1,4 @@
-package com.generalmobi.smart.helmet;
+package com.generalmobi.smart.finder;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

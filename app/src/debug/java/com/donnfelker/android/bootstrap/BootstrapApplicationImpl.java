@@ -1,4 +1,4 @@
-package com.generalmobi.smart.helmet;
+package com.generalmobi.smart.finder;
 
 
 import timber.log.Timber;

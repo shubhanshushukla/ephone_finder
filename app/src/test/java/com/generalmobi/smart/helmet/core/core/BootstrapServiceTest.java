@@ -1,16 +1,16 @@
 
 
-package com.generalmobi.smart.helmet.core.core;
+package com.generalmobi.smart.finder.core.core;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.doReturn;
 
-import com.generalmobi.smart.helmet.core.BootstrapService;
-import com.generalmobi.smart.helmet.core.CheckIn;
-import com.generalmobi.smart.helmet.core.News;
-import com.generalmobi.smart.helmet.core.User;
-import com.generalmobi.smart.helmet.core.UserAgentProvider;
+import com.generalmobi.smart.finder.core.BootstrapService;
+import com.generalmobi.smart.finder.core.CheckIn;
+import com.generalmobi.smart.finder.core.News;
+import com.generalmobi.smart.finder.core.User;
+import com.generalmobi.smart.finder.core.UserAgentProvider;
 import com.github.kevinsawicki.http.HttpRequest;
 
 import java.io.BufferedReader;
@@ -26,7 +26,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 /**
- * Unit tests of {@link com.generalmobi.smart.helmet.core.BootstrapService}
+ * Unit tests of {@link com.generalmobi.smart.finder.core.BootstrapService}
  */
 @RunWith(MockitoJUnitRunner.class)
 public class BootstrapServiceTest {

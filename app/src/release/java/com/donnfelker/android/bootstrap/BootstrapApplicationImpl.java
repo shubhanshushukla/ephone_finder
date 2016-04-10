@@ -1,7 +1,7 @@
-package com.generalmobi.smart.helmet;
+package com.generalmobi.smart.finder;
 
 import com.crashlytics.android.Crashlytics;
-import com.generalmobi.smart.helmet.logging.CrashlyticsTree;
+import com.generalmobi.smart.finder.logging.CrashlyticsTree;
 
 import io.fabric.sdk.android.Fabric;
 import timber.log.Timber;

@@ -1,16 +1,16 @@
 
 
-package com.generalmobi.smart.helmet.test;
+package com.generalmobi.smart.finder.test;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.Instrumentation;
 import android.content.Context;
 import android.util.Log;
-import static com.generalmobi.smart.helmet.core.Constants.Auth.*;
+import static com.generalmobi.smart.finder.core.Constants.Auth.*;
 
-import com.generalmobi.smart.helmet.tests.R;
-import com.generalmobi.smart.helmet.util.Ln;
+import com.generalmobi.smart.finder.tests.R;
+import com.generalmobi.smart.finder.util.Ln;
 
 
 /**

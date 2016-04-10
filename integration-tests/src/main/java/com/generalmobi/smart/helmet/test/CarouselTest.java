@@ -1,10 +1,10 @@
 
 
-package com.generalmobi.smart.helmet.test;
+package com.generalmobi.smart.finder.test;
 
 import android.test.ActivityInstrumentationTestCase2;
 
-import com.generalmobi.smart.helmet.ui.CarouselActivity;
+import com.generalmobi.smart.finder.ui.CarouselActivity;
 
 
 /**

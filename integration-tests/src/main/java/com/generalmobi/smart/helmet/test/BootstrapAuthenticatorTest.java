@@ -1,13 +1,13 @@
 
 
-package com.generalmobi.smart.helmet.test;
+package com.generalmobi.smart.finder.test;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.view.View;
 import android.widget.Button;
 
-import com.generalmobi.smart.helmet.authenticator.BootstrapAuthenticatorActivity;
-import com.generalmobi.smart.helmet.R;
+import com.generalmobi.smart.finder.authenticator.BootstrapAuthenticatorActivity;
+import com.generalmobi.smart.finder.R;
 
 
 /**
@@ -16,7 +16,7 @@ import com.generalmobi.smart.helmet.R;
 public class BootstrapAuthenticatorTest extends ActivityInstrumentationTestCase2<BootstrapAuthenticatorActivity> {
 
     /**
-     * Create test for {@link com.generalmobi.smart.helmet.authenticator.BootstrapAuthenticatorActivity}
+     * Create test for {@link com.generalmobi.smart.finder.authenticator.BootstrapAuthenticatorActivity}
      */
     public BootstrapAuthenticatorTest() {
         super(BootstrapAuthenticatorActivity.class);

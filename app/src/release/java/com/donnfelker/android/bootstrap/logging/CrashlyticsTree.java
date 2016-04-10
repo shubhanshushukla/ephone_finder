@@ -1,4 +1,4 @@
-package com.generalmobi.smart.helmet.logging;
+package com.generalmobi.smart.finder.logging;
 
 import android.util.Log;
 

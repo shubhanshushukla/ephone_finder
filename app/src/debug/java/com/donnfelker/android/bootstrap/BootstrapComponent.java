@@ -1,8 +1,7 @@
-package com.generalmobi.smart.helmet;
+package com.generalmobi.smart.finder;
 
-import com.generalmobi.smart.helmet.ui.BootstrapActivity;
- import com.generalmobi.smart.helmet.ui.MainActivity;
-import com.generalmobi.smart.helmet.util.TelephonyReceiver;
+import com.generalmobi.smart.finder.ui.BootstrapActivity;
+ import com.generalmobi.smart.finder.ui.MainActivity;
 
 import javax.inject.Singleton;
 
