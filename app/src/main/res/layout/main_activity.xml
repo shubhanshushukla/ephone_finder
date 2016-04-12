@@ -1,35 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.v4.widget.DrawerLayout
+<TableLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="hello"
-        />
-    <TextView
-        android:id="@+id/bluetoothstate"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        />
-    <Button
-        android:id="@+id/listpaireddevices"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="List Paired Devices"
-        android:enabled="false"
-        />
 
 
-    <!-- The main content view -->
-    <FrameLayout
+    <!-- The main content view --><FrameLayout
             android:id="@+id/container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shake Senstivity"
+        android:id="@+id/sensor_label"
+        android:layout_gravity="left|center_vertical"
+        android:layout_marginBottom="100dp"
+        android:paddingLeft="5dp"
+        android:textSize="40dp"
+        />
 
 
-</android.support.v4.widget.DrawerLayout>
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/seekBar"
+        android:max="10"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sensor_value"
+        android:textSize="15dp"
+
+        android:layout_gravity="left|center"
+        android:layout_marginTop="50dp"
+        android:paddingLeft="5dp"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:id="@+id/button"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:paddingLeft="5dp"
+        />
+</FrameLayout>
+
+
+</TableLayout>
