@@ -1,7 +1,6 @@
 package com.generalmobi.smart.finder;
 
-import com.crashlytics.android.Crashlytics;
-import com.generalmobi.smart.finder.logging.CrashlyticsTree;
+ import com.generalmobi.smart.finder.logging.CrashlyticsTree;
 
  import timber.log.Timber;
 
