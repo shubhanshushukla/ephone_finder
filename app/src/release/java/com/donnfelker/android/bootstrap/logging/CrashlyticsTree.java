@@ -2,7 +2,6 @@ package com.generalmobi.smart.finder.logging;
 
 import android.util.Log;
 
-import com.crashlytics.android.Crashlytics;
 
 import timber.log.Timber;
 
@@ -17,12 +16,10 @@ public class CrashlyticsTree extends Timber.Tree {
             return;
         }
 
-        Crashlytics.log(priority, tag, message);
 
         if (t != null) {
             if (priority == Log.ERROR) {
-                Crashlytics.logException(t);
-            }
+             }
         }
 
     }
