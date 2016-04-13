@@ -31,7 +31,8 @@ def computeVersionCode() {
 }
 
 def computeVersionName() {
-    return version;
+    //return version;
+    return "1.0.1-SNAPSHOT";
 }
 
 //noinspection GroovyUnusedAssignment

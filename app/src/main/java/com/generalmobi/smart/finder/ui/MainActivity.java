@@ -20,6 +20,8 @@ import android.speech.tts.TextToSpeech;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,6 +37,8 @@ import java.util.Locale;
 
 import javax.inject.Inject;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import timber.log.Timber;
 
 
@@ -43,8 +47,15 @@ import timber.log.Timber;
  */
 public class MainActivity extends BootstrapActivity implements SeekBar.OnSeekBarChangeListener {
 
-    SeekBar seekBar;
+
+    @Bind(R.id.seekBar)
+     SeekBar seekBar;
+
+    @Bind(R.id.sensor_value)
    TextView textview;
+
+    @Bind(R.id.m_ok_button)
+    Button button;
     private ShakeListener mShaker;
     @Inject
     BootstrapServiceProvider serviceProvider;
@@ -53,13 +64,21 @@ public class MainActivity extends BootstrapActivity implements SeekBar.OnSeekBar
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+        ButterKnife.bind(this);
         BootstrapApplication.component().inject(this);
-        seekBar = (SeekBar) findViewById(R.id.seekBar);
-        textview =(TextView) findViewById(R.id.sensor_value);
+
+
         startService();
         seekBar.setOnSeekBarChangeListener(this);
+        seekBar.setProgress(5);
+        ShakeListener.FORCE_THRESHOLD=5*100;
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    moveTaskToBack(true);
+            }
 
-
+        });
 
     }
     public void startService() {
@@ -82,8 +101,7 @@ public class MainActivity extends BootstrapActivity implements SeekBar.OnSeekBar
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         ShakeListener.FORCE_THRESHOLD=progress*100;
-        textview.setText("Sensitivity :"+progress);
-
+        textview.setText("Sensitivity :" + progress);
 
        // Toast.makeText(getApplicationContext(),"seekbar progress: "+progress, Toast.LENGTH_SHORT).show();
 

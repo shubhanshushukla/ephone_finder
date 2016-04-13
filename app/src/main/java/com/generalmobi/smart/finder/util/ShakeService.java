@@ -5,12 +5,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
+import android.media.MediaPlayer;
 import android.os.IBinder;
 import android.os.Vibrator;
 import android.widget.Toast;
 
+import com.generalmobi.smart.finder.R;
 import com.generalmobi.smart.finder.ui.Speechactivity;
 import com.generalmobi.smart.finder.ui.Speechactivity;
+
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Created by admin on 4/12/2016.
@@ -21,7 +25,8 @@ public class ShakeService extends Service implements ShakeListener.OnShakeListen
     private ShakeListener mShaker;
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
-
+    public static volatile boolean blink=true;
+    public  static   MediaPlayer mp =null;
     @Override
     public IBinder onBind(Intent intent) {
         return null;
@@ -30,6 +35,7 @@ public class ShakeService extends Service implements ShakeListener.OnShakeListen
     @Override
     public void onCreate() {
         super.onCreate();
+        mp =MediaPlayer.create(this, R.raw.iamhere);
         this.mSensorManager = ((SensorManager)getSystemService(Context.SENSOR_SERVICE));
         this.mAccelerometer = this.mSensorManager.getDefaultSensor(1);
         mShaker = new ShakeListener(this);
