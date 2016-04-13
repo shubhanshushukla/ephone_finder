@@ -89,7 +89,8 @@ public class Speechactivity extends BootstrapActivity{
             if (resultCode == RESULT_OK)
             {
                 ArrayList<String> textMatchList = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                if (textMatchList.contains("phone"))
+                if (textMatchList.contains("phone")||textMatchList.contains("fone")&& (textMatchList.contains("are")||textMatchList.contains("r")
+                        && (textMatchList.contains("you")||textMatchList.contains("u")&& (textMatchList.contains("there")||textMatchList.contains("dere")))))
                 {
                     final Vibrator vibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
                     vibe.vibrate(1000);
