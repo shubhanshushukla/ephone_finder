@@ -188,6 +188,7 @@ static boolean state=true;
                 else
                 {
                     finish();;
+                    moveTaskToBack(true);
                 }
 
 
