@@ -181,7 +181,7 @@ static boolean state=true;
                             return "OK";
                          }
                     } ;
-                    stringSafeAsyncTask.execute();
+                   // stringSafeAsyncTask.execute();
 
 
                 }
