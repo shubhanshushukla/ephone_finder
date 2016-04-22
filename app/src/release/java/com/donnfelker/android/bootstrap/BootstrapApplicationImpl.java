@@ -1,6 +1,6 @@
-package com.generalmobi.smart.finder;
+package com.experiment.smart.finder;
 
- import com.generalmobi.smart.finder.logging.CrashlyticsTree;
+ import com.experiment.smart.finder.logging.CrashlyticsTree;
 
  import timber.log.Timber;
 

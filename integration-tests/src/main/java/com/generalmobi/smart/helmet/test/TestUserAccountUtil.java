@@ -1,16 +1,16 @@
 
 
-package com.generalmobi.smart.finder.test;
+package com.experiment.smart.finder.test;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.Instrumentation;
 import android.content.Context;
 import android.util.Log;
-import static com.generalmobi.smart.finder.core.Constants.Auth.*;
+import static com.experiment.smart.finder.core.Constants.Auth.*;
 
-import com.generalmobi.smart.finder.tests.R;
-import com.generalmobi.smart.finder.util.Ln;
+import com.experiment.smart.finder.tests.R;
+import com.experiment.smart.finder.util.Ln;
 
 
 /**

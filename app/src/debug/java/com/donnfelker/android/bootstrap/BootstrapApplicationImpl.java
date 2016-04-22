@@ -1,4 +1,4 @@
-package com.generalmobi.smart.finder;
+package com.experiment.smart.finder;
 
 
 import timber.log.Timber;

@@ -1,13 +1,13 @@
 
 
-package com.generalmobi.smart.finder.test;
+package com.experiment.smart.finder.test;
 
-import static com.generalmobi.smart.finder.core.Constants.Extra.NEWS_ITEM;
+import static com.experiment.smart.finder.core.Constants.Extra.NEWS_ITEM;
 import android.content.Intent;
 import android.test.ActivityInstrumentationTestCase2;
 
-import com.generalmobi.smart.finder.core.News;
-import com.generalmobi.smart.finder.ui.CarouselActivity;
+import com.experiment.smart.finder.core.News;
+import com.experiment.smart.finder.ui.CarouselActivity;
 
 
 /**
@@ -16,7 +16,7 @@ import com.generalmobi.smart.finder.ui.CarouselActivity;
 public class NewsViewTest extends ActivityInstrumentationTestCase2<CarouselActivity> {
 
     /**
-     * Create test for {@link com.generalmobi.smart.finder.ui.CarouselActivity}
+     * Create test for {@link com.experiment.smart.finder.ui.CarouselActivity}
      */
     public NewsViewTest() {
         super(CarouselActivity.class);

@@ -17,21 +17,21 @@ There will be *no upgrade path* as Smart Helmet is mean to act as a starting poi
 
 # Smart Helmet App
 
-[![Build Status](https://travis-ci.org/AndroidBootstrap/com-generalmobi-smart-helmet.svg?branch=master)](https://travis-ci.org/AndroidBootstrap/com-generalmobi-smart-helmet)
+[![Build Status](https://travis-ci.org/AndroidBootstrap/com-experiment-smart-helmet.svg?branch=master)](https://travis-ci.org/AndroidBootstrap/com-experiment-smart-helmet)
 
 This repository contains the source code for the [Smart Helmet](http://www.androidbootstrap.com/)
-Android app available from [Google Play](https://play.google.com/store/apps/details?id=com.generalmobi.smart.helmet).
+Android app available from [Google Play](https://play.google.com/store/apps/details?id=com.experiment.smart.helmet).
 
-Please see the [issues](https://github.com.generalmobi.smart.helmet/com-generalmobi-smart-helmet/issues) section
+Please see the [issues](https://github.com.experiment.smart.helmet/com-experiment-smart-helmet/issues) section
 to report any bugs or feature requests and to see the list of known issues.
 
-Have a questions about Smart Helmet? Ask away on the [com-generalmobi-smart-helmet discussion forum](https://groups.google.com/forum/#!forum/com-generalmobi-smart-helmet).
+Have a questions about Smart Helmet? Ask away on the [com-experiment-smart-helmet discussion forum](https://groups.google.com/forum/#!forum/com-experiment-smart-helmet).
 
-<a href="https://play.google.com/store/apps/details?id=com.generalmobi.smart.helmet" alt="Download from Google Play">
+<a href="https://play.google.com/store/apps/details?id=com.experiment.smart.helmet" alt="Download from Google Play">
   <img src="http://f.cl.ly/items/3V0K1s1i402W0c193v2w/Image%202013.07.08%201%3A45%3A25%20PM.png">
 </a>
 
-<a href="https://play.google.com/store/apps/details?id=com.generalmobi.smart.helmet" alt="Download from Google Play">
+<a href="https://play.google.com/store/apps/details?id=com.experiment.smart.helmet" alt="Download from Google Play">
   <img src="http://f.cl.ly/items/0e3T2F2x3M0K2l1X0A0u/Image%202013.07.08%201%3A46%3A09%20PM.png">
 </a>
 
@@ -60,13 +60,13 @@ As an example, you know that you want your app name and package to the following
 After generating the app on [AndroidBootstrap.com](http://www.androidbootstrap.com) the folder structure of the source
 code for the app will change:
 
-  - From: __com.generalmobi.smart.helmet__
+  - From: __com.experiment.smart.helmet__
   - To: __com/notify/app/mobile__
 
-At that point all the source files that were located in ____com.generalmobi.smart.helmet__ will be moved to the
+At that point all the source files that were located in ____com.experiment.smart.helmet__ will be moved to the
 new folder __com/notify/app/mobile__.
 
-All import statments that reference the old resources (__R.com.generalmobi.smart.helmet.R__) will now be renamed
+All import statments that reference the old resources (__R.com.experiment.smart.helmet.R__) will now be renamed
 to the correct package. The artifact id's in the *pom.xml* (and various other places) will be replaced. The App Name
 will be replaced in the strings/etc.
 
@@ -157,14 +157,14 @@ and uses many great open-source libraries from the Android dev community:
 
 
 ## Contributors
-Thank you to all the [contributors](http://www.github.com.generalmobi.smart.helmet/com-generalmobi-smart-helmet/contributors) on
+Thank you to all the [contributors](http://www.github.com.experiment.smart.helmet/com-experiment-smart-helmet/contributors) on
 this project. Your help is much appreciated.
 
 
 ## Contributing
 
 Please fork this repository and contribute back using
-[pull requests](https://github.com.generalmobi.smart.helmet/com-generalmobi-smart-helmet/pulls).
+[pull requests](https://github.com.experiment.smart.helmet/com-experiment-smart-helmet/pulls).
 
 Any contributions, large or small, major features, bug fixes, additional
 language translations, unit/integration tests are welcomed and appreciated

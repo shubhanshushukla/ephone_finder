@@ -1,10 +1,10 @@
-package com.generalmobi.smart.finder;
+package com.experiment.smart.finder;
 
 
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.generalmobi.smart.finder.ui.MainActivity;
+import com.experiment.smart.finder.ui.MainActivity;
 
 import org.junit.Rule;
 import org.junit.Test;

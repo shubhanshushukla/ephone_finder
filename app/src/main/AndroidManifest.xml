@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
-          package="com.generalmobi.smart.finder">
+          package="com.experiment.smart.finder">
 
     <uses-sdk
         tools:overrideLibrary="android.support.test.uiautomator.v18"/>
@@ -23,12 +23,12 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-feature android:name="android.hardware.camera" />
     <application
-        android:name="com.generalmobi.smart.finder.BootstrapApplicationImpl"
+        android:name="com.experiment.smart.finder.BootstrapApplicationImpl"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:theme="@style/Theme.Bootstrap.Dark">
         <activity
-            android:name="com.generalmobi.smart.finder.ui.MainActivity"
+            android:name="com.experiment.smart.finder.ui.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name">
             <intent-filter>
@@ -39,13 +39,13 @@
 
         </activity>
         <activity
-            android:name="com.generalmobi.smart.finder.ui.Speechactivity"
+            android:name="com.experiment.smart.finder.ui.Speechactivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name">
 
         </activity>
         <service android:name=".util.ShakeService"></service>
-        <receiver android:name="com.generalmobi.smart.finder.util.BootReciever">
+        <receiver android:name="com.experiment.smart.finder.util.BootReciever">
             <intent-filter >
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>              z

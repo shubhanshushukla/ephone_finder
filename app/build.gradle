@@ -45,7 +45,7 @@ android {
     defaultConfig {
         minSdkVersion 18
         targetSdkVersion 23
-        applicationId "com.generalmobi.smart.helmet"
+        applicationId "com.experiment.smart.helmet"
         versionCode computeVersionCode()
         versionName computeVersionName()
 
@@ -100,7 +100,7 @@ android {
             // proguardFile '..\proguard.cfg'
             // signingConfig signingConfigs.release
             // zipAlign true // this is default for release
-            // testPackageName 'com.generalmobi.gvts.tests'
+            // testPackageName 'com.experiment.gvts.tests'
             // testInstrumentationRunner 'android.test.InstrumentationTestRunner' // this is the default
         }
     }

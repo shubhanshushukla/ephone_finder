@@ -1,4 +1,4 @@
-package com.generalmobi.smart.finder.logging;
+package com.experiment.smart.finder.logging;
 
 import android.util.Log;
 

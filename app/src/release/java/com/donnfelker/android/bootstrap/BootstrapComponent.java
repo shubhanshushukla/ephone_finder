@@ -1,8 +1,8 @@
-package com.generalmobi.smart.finder;
+package com.experiment.smart.finder;
 
 
-import com.generalmobi.smart.finder.ui.BootstrapActivity;
-import com.generalmobi.smart.finder.ui.MainActivity;
+import com.experiment.smart.finder.ui.BootstrapActivity;
+import com.experiment.smart.finder.ui.MainActivity;
 
 import javax.inject.Singleton;
 
